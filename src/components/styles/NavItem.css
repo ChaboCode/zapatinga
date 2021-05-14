@@ -1,0 +1,25 @@
+.nav-item__link {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-item__button {
+    top: 0px;
+    
+    height: 51px;
+    width: 150px;
+
+    border: none;
+    background: rgba(255, 255, 255, 0);
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 16px;
+}
+
+.nav-item__button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.nav-item__button:active {
+    background: rgba(200, 200, 200, 0.5);
+}

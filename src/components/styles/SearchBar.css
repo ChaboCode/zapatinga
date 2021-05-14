@@ -1,0 +1,27 @@
+.search-bar__container {
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar__input {
+    width: 20%;
+
+    margin-top: 20px;
+    padding: 4px;
+    padding-left: 8px;
+
+    font-size: 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    box-shadow: 0px 0px 5px 0px #666;
+
+    transition: 300ms ease;
+}
+
+.search-bar__input:focus-visible{
+    width: 60%;
+    padding-left: 16px;
+    outline: none;
+}

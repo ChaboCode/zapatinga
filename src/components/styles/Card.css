@@ -1,0 +1,31 @@
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 5px;
+    width: 250px;
+    height: 250px;
+
+    box-shadow: 2px 2px 5px 0px #ccc;
+
+    transition: 200ms ease;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 5px 0px #999;
+}
+
+.card-image {
+    height: 150px;
+    margin: 6px;
+
+    object-fit: cover;
+    box-shadow: 2px 2px 5px 0px #eee;
+}
+
+.card-info{
+    margin: 6px;
+    font-family: 'Open Sans', sans-serif;
+}

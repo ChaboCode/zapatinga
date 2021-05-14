@@ -1,0 +1,14 @@
+header {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    background: rgb(0, 225, 255);
+
+    box-shadow: 0px 0px 9px 0px #666;
+}
+
+.header__title {
+    margin: 10px 20px;
+    font-size: 26px;
+    font-family: 'Zen Dots', 'Ubuntu', sans-serif;
+}
