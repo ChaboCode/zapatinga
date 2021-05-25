@@ -9,27 +9,6 @@ import { API_PATH, GET_ZAPATO_BY_ID, GET_SEASON_BY_SEASON_ID } from '../constant
 function ZapatoView(props) {
     const [zapatoData, setZapatoData] = useState({id: null});
 
-    const getSeason = () => {
-        axios({
-            method: 'get',
-            url: API_PATH + GET_SEASON_BY_SEASON_ID,
-
-            headers: {
-                'Content-Type': 'application/json',
-            },
-
-            params: {
-                season_id: zapatoData.season,
-            },
-        })
-        .then((result) => {
-            result.status === 200 && setZapatoData({ ...zapatoData, season: result.data.season_name });
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
-
     const getZapatoData = () => {
         axios({
             method: 'get',
@@ -53,9 +32,6 @@ function ZapatoView(props) {
     useEffect(() => {
          // Step 2. GET tryhard-server/getZapatoById.php if not defined
         zapatoData.id || getZapatoData();
-
-        // Step 3. GET tryhard-server/getSeasonBySeasonID if prev request was 200
-        zapatoData.id && getSeason();
 
         //eslint-disable-next-line
     }, [props.zapatoID, zapatoData.id]);
