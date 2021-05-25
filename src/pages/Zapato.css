@@ -1,0 +1,7 @@
+.zapato-view__container {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    margin: 20px 0px;
+}

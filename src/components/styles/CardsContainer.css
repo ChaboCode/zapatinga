@@ -1,4 +1,14 @@
 .cards-container {
-    width: 60%;
+    width: 100%;
     text-align: center;
+}
+
+.cards-section{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.hidden {
+    display: none;
 }

@@ -8,8 +8,10 @@ import WebFont from 'webfontloader';
 import './index.css';
 
 import Home from './pages/Home';
-import Popular from './pages/Popular';
+import Login from './pages/Login';
 import Offers from './pages/Offers';
+import Popular from './pages/Popular';
+import Zapato from'./pages/Zapato';
 
 import reducer from './reducers'
 
@@ -24,6 +26,7 @@ WebFont.load({
 const initialState = {
     'search': '',
     'searchFocus': false,
+    'logged': false,
 };
 const composeEnchacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() || compose;
 const store = createStore(reducer, initialState, composeEnchacers);
@@ -35,6 +38,8 @@ ReactDOM.render(
             <Route path="/" component={Home} />
             <Route path="/populares" component={Popular} />
             <Route path="/ofertas" component={Offers} />
+            <Route path="/zapato/:zapatoID" component={Zapato} />
+            <Route path="/login" component={routeProps => <Login {...routeProps} />} />
         </Router>
     </Provider>,
     document.getElementById('root'),

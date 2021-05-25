@@ -12,8 +12,11 @@
     border: none;
     background: rgba(255, 255, 255, 0);
 
+    color: white;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
+
+    transition: 200ms ease;
 }
 
 .nav-item__button:hover {
