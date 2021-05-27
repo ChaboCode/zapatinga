@@ -15,3 +15,7 @@ header {
     font-size: 26px;
     font-family: 'Zen Dots', 'Ubuntu', sans-serif;
 }
+
+.header-right {
+    display: flex;
+}

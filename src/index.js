@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Offers from './pages/Offers';
 import Popular from './pages/Popular';
+import Register from './pages/Register';
 import Zapato from'./pages/Zapato';
 
 import reducer from './reducers'
@@ -42,8 +43,9 @@ ReactDOM.render(
             <Route path="/populares" component={Popular} />
             <Route path="/ofertas" component={Offers} />
             <Route path="/zapato/:zapatoID" component={Zapato} />
-            <Route path="/login" component={routeProps => <Login {...routeProps} />} />
-            <Route path="/cart" component={routeProps => <Cart {...routeProps} />} />
+            <Route path="/login" component={(routeProps) => <Login {...routeProps} />} />
+            <Route path="/register" component={(routeProps) => <Register {...routeProps} />} />
+            <Route path="/cart" component={(routeProps) => <Cart {...routeProps} />} />
         </Router>
     </Provider>,
     document.getElementById('root'),

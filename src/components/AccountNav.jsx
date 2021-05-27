@@ -13,7 +13,7 @@ function AccountNav(props) {
     });
 
     useEffect(() => {
-        let jwt = localStorage.getItem('jwt');
+        const jwt = localStorage.getItem('jwt');
         if (jwt) {
             setLoginStatus({ message: 'Iniciando sesion' });
 
@@ -32,6 +32,7 @@ function AccountNav(props) {
                 .then((result) => {
                     setLoginStatus({
                         message: `Bienvenido, ${result.data}`,
+                        link: null,
                     });
                 })
                 .catch((error) => {
@@ -44,7 +45,16 @@ function AccountNav(props) {
         }
     }, []);
 
-    return <NavItem link={loginStatus.link}>{loginStatus.message}</NavItem>;
+    const logout = () => {
+        localStorage.removeItem('jwt');
+    };
+
+    const jwtExists = localStorage.getItem('jwt') !== undefined;
+    return (
+        <NavItem link={loginStatus.link} onClick={jwtExists && logout}>
+            {loginStatus.message}
+        </NavItem>
+    );
 }
 
 const mapStateToProps = (state) => {

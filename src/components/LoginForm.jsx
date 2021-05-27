@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router';
 import axios from 'axios';
 import { sha256 } from 'js-sha256';
 
 import './styles/Form.css';
 
-import { API_PATH, VALIDATE_LOGIN } from '../constants';
+import { API_PATH, VALIDATE_LOGIN, REGISTER } from '../constants';
 
 function LoginForm(props) {
     const { register } = props;
@@ -25,7 +26,7 @@ function LoginForm(props) {
     const handleSubmit = () => {
         axios({
             method: 'post',
-            url: API_PATH + VALIDATE_LOGIN,
+            url: API_PATH + (register ? REGISTER : VALIDATE_LOGIN),
 
             headers: {
                 'Content-Type': 'application/json',
@@ -44,7 +45,7 @@ function LoginForm(props) {
 
     return (
         <div class="login-form">
-            <h1>Bienvenido</h1>
+            <h1>{register ? 'Forma parte de Zapatinga!' : 'Bienvenido de nuevo' }</h1>
             <div class="input-group">
                 <span>Ingresa tu nombre de usuario</span>
                 <input
@@ -66,8 +67,14 @@ function LoginForm(props) {
             </div>
 
             <button class="button-send" onClick={handleSubmit}>
-                Ingresar
+                {register ? "Registrarse" : "Ingresar" }
             </button>
+
+            <Link to={register ? "/login" : "/register"}>
+                <button class="button-send">
+                    {register ? 'Inicia sesion' : 'Registrate'}
+                </button>
+            </Link>
         </div>
     );
 }
