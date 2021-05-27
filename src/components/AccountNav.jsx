@@ -50,7 +50,7 @@ function AccountNav(props) {
         window.location.reload();
     };
 
-    const jwtExists = localStorage.getItem('jwt') !== undefined;
+    const jwtExists = localStorage.getItem('jwt') && true;
     return (
         <NavItem link={loginStatus.link} onClick={jwtExists && logout}>
             {loginStatus.message}
