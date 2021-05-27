@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { sha256} from 'js-sha256';
+import { sha256 } from 'js-sha256';
 
 import './styles/Form.css';
 
 import { API_PATH, VALIDATE_LOGIN } from '../constants';
 
 function LoginForm(props) {
-    const {
-        register
-    } = props;
+    const { register } = props;
 
     // State for handling inputs
     const [data, setData] = useState({});
@@ -22,7 +20,7 @@ function LoginForm(props) {
             ...data,
             ...newData,
         });
-    }
+    };
 
     const handleSubmit = () => {
         axios({
@@ -37,22 +35,22 @@ function LoginForm(props) {
                 username: data.username,
                 password: data.password,
             },
-	}).then((result) => {
+        }).then((result) => {
             console.log(result.data);
             localStorage.setItem('jwt', result.data);
             props.router.push('/');
-	});
+        });
     };
 
     return (
         <div class="login-form">
-           <h1>Bienvenido</h1>
+            <h1>Bienvenido</h1>
             <div class="input-group">
                 <span>Ingresa tu nombre de usuario</span>
                 <input
                     type="text"
                     name="username"
-                    onChange={(e) => handleInput("username", e.target.value)}
+                    onChange={(e) => handleInput('username', e.target.value)}
                 />
             </div>
 
@@ -61,7 +59,9 @@ function LoginForm(props) {
                 <input
                     type="password"
                     name="password"
-                    onChange={(e) => handleInput("password", sha256(e.target.value))}
+                    onChange={(e) =>
+                        handleInput('password', sha256(e.target.value))
+                    }
                 />
             </div>
 
@@ -69,7 +69,7 @@ function LoginForm(props) {
                 Ingresar
             </button>
         </div>
-    )
+    );
 }
 
 export default LoginForm;

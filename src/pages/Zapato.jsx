@@ -19,7 +19,7 @@ function Zapato(props) {
             <Header />
             <SearchBar />
             <div class="zapato-view__container">
-                <ZapatoView zapatoID={zapatoID} />
+                <ZapatoView zapatoID={zapatoID} router={props.router} />
             </div>
         </>
     );

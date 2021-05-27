@@ -7,6 +7,7 @@ import WebFont from 'webfontloader';
 
 import './index.css';
 
+import Cart from './pages/Cart';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Offers from './pages/Offers';
@@ -27,8 +28,10 @@ const initialState = {
     'search': '',
     'searchFocus': false,
     'logged': false,
+    'cart': [],
 };
-const composeEnchacers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() || compose;
+const reduxDev = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const composeEnchacers = reduxDev ? reduxDev() : compose;
 const store = createStore(reducer, initialState, composeEnchacers);
 
 // Step 3. Render
@@ -40,6 +43,7 @@ ReactDOM.render(
             <Route path="/ofertas" component={Offers} />
             <Route path="/zapato/:zapatoID" component={Zapato} />
             <Route path="/login" component={routeProps => <Login {...routeProps} />} />
+            <Route path="/cart" component={routeProps => <Cart {...routeProps} />} />
         </Router>
     </Provider>,
     document.getElementById('root'),
