@@ -8,7 +8,7 @@ import NavItem from './NavItem';
 
 function AccountNav(props) {
     const [loginStatus, setLoginStatus] = useState({
-        message: 'Inicia sesi&oacute;n',
+        message: 'Inicia sesion',
         link: '/login',
     });
 
