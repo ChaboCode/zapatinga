@@ -5,11 +5,11 @@ import CardsContainer from './CardsContainer'
 import SearchDisplay from './SearchDisplay';
 
 function Navigation(props) {
-    const { searchFocus } = props;
+    const { searchFocus, mainElement } = props;
 
     const cards = (
             <section className={searchFocus ? "hidden" : null}>
-                <CardsContainer order="recent" />
+                {mainElement}
             </section>
     );
 

@@ -15,3 +15,5 @@ export const ADD_ITEM_TO_CART = 'addItemToCart.php';
 export const INCREMENT_CART_ITEM_COUNT = 'incrementCartItemCount.php';
 export const SUBSTRACT_CART_ITEM_COUNT = 'substractCartItemCount.php';
 
+export const CLEAN_CART = 'cleanCart.php';
+

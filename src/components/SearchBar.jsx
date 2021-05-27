@@ -5,21 +5,21 @@ import { searchOnChange, searchOnBlur, searchOnFocus } from '../actions';
 import { connect } from 'react-redux';
 
 function SearchBar(props) {
-    const { searchOnChange, searchOnFocus, searchOnBlur } = props;
+    const { searchOnChange, searchOnFocus, searchOnBlur, search } = props;
 
     const handleChange = (event) => {
         event.preventDefault();
-        searchOnChange({search: event.target.value});
+        searchOnChange({ search: event.target.value });
+
+        if (search === '') {
+            searchOnBlur();
+            event.target.blur();
+        }
     };
 
     const handleFocus = (event) => {
         event.preventDefault();
         searchOnFocus();
-    };
-
-    const handleBlur = (event) => {
-        event.preventDefault();
-        searchOnBlur();
     };
 
     return (
@@ -30,7 +30,6 @@ function SearchBar(props) {
                 placeholder="Qu&eacute; est&aacute;s buscando?"
                 onChange={handleChange}
                 onFocus={handleFocus}
-                onBlur={handleBlur}
             />
         </div>
     );
@@ -40,6 +39,10 @@ const mapDispatchToProps = {
     searchOnChange,
     searchOnFocus,
     searchOnBlur,
+};
+
+const mapStateToProps = (state) => {
+    return { search: state.search };
 };
 
 export default connect(null, mapDispatchToProps)(SearchBar);

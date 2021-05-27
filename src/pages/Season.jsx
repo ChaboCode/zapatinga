@@ -6,14 +6,17 @@ import SearchBar from '../components/SearchBar';
 import Navigation from '../components/Navigation';
 import CardsContainer from '../components/CardsContainer';
 
-function Home() {
+function Season(props) {
+    const { id } = props;
+
     return (
         <>
             <Header />
             <SearchBar />
-            <Navigation mainElement={(<CardsContainer />)} />
+            <Navigation mainElement={<CardsContainer season={id}/>}/>
         </>
     );
 }
 
-export default Home;
+export default Season;
+

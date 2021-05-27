@@ -24,7 +24,7 @@ function CardsContainer(props) {
                 },
 
                 params: {
-                    order: props.order,
+                    season: props.season,
                 },
             }).then((result) => {
                 result.status === 200 && setData(result.data);

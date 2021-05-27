@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import axios from 'axios';
 import { Classes, Button } from '@blueprintjs/core';
 
@@ -83,11 +84,13 @@ function ZapatoView(props) {
                 </span>
                 <span className="zapato-info__price">${zapatoData.price}</span>
                 <div className="zapato-info__buy">
-                    <Button
-                        intent="primary"
-                        large={true}
-                        text="Comprar ahora"
-                    />
+                    <Link to="/checkout">
+                        <Button
+                            intent="primary"
+                            large={true}
+                            text="Comprar ahora"
+                        />
+                    </Link>
                     <Button
                         intent="secondary"
                         large={true}

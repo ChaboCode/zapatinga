@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import axios from 'axios';
+import { Classes, Button } from '@blueprintjs/core';
 
+import { API_PATH, CLEAN_CART } from '../constants';
 import Header from '../components/Header';
 import CartItem from '../components/CartItem';
 
@@ -11,6 +15,18 @@ function Cart(props) {
     let [renderItems, setRenderItems] = useState(
         cart.map((cartItem) => <CartItem item={cartItem} />),
     );
+
+    const handleCheckout = () => {
+        const params = new URLSearchParams();
+        params.append('jwt', localStorage.getItem('jwt'));
+        axios({
+            method: 'post',
+            url: API_PATH + CLEAN_CART,
+            data: params,
+        }).then(() => {
+            props.router.push('/checkout');  
+        })
+    }
 
     useEffect(() => {
         // All the stuff needed is already on state.cart
@@ -24,7 +40,15 @@ function Cart(props) {
     return (
         <>
             <Header />
-            <div className="cart">{renderItems}</div>
+            <div className="cart">
+                {renderItems}
+                    <Button
+                        intent="secondary"
+                        large={true}
+                        text="A&ntilde;adir al carrito"
+                        onClick={handleCheckout}
+                    />
+            </div>
         </>
     );
 }

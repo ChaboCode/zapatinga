@@ -8,11 +8,13 @@ import WebFont from 'webfontloader';
 import './index.css';
 
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Offers from './pages/Offers';
 import Popular from './pages/Popular';
 import Register from './pages/Register';
+import Season from './pages/Season';
 import Zapato from'./pages/Zapato';
 
 import reducer from './reducers'
@@ -40,12 +42,14 @@ ReactDOM.render(
     <Provider store={store}>
         <Router history={browserHistory}>
             <Route path="/" component={Home} />
-            <Route path="/populares" component={Popular} />
-            <Route path="/ofertas" component={Offers} />
             <Route path="/zapato/:zapatoID" component={Zapato} />
             <Route path="/login" component={(routeProps) => <Login {...routeProps} />} />
             <Route path="/register" component={(routeProps) => <Register {...routeProps} />} />
             <Route path="/cart" component={(routeProps) => <Cart {...routeProps} />} />
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/primaverano" component={() => <Season id="1"/>} />
+            <Route path="/otono" component={() => <Season id="3"/>} />
+            <Route path="/invernal" component={() => <Season id="2"/>} />
         </Router>
     </Provider>,
     document.getElementById('root'),
