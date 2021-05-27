@@ -1,4 +1,4 @@
-export const API_PATH = 'http://localhost/tryhard-server/'// 'https://zapatinga-sylas.herokuapp.com/';
+export const API_PATH = 'https://zapatinga-sylas.herokuapp.com/';
 
 export const GET_SEASON_BY_SEASON_ID = 'getSeasonBySeasonId.php';
 
