@@ -47,6 +47,7 @@ function AccountNav(props) {
 
     const logout = () => {
         localStorage.removeItem('jwt');
+        window.location.reload();
     };
 
     const jwtExists = localStorage.getItem('jwt') !== undefined;
