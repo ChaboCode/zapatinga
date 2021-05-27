@@ -8,6 +8,7 @@ export const GET_ZAPATO_BY_ID = 'getZapatoById.php';
 
 export const GET_USERNAME_FROM_JWT = 'getUsernameFromJWT.php'
 export const VALIDATE_LOGIN = 'validateLogin.php';
+export const REGISTER = 'register.php';
 
 export const GET_CART_COUNT = 'getCartCount.php';
 export const ADD_ITEM_TO_CART = 'addItemToCart.php';
