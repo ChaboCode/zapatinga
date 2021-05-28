@@ -15,6 +15,7 @@ function Cart(props) {
     let [renderItems, setRenderItems] = useState(
         cart.map((cartItem) => <CartItem item={cartItem} />),
     );
+    let [totalPrice, setTotalPrice] = useState(0);
 
     const handleCheckout = () => {
         const params = new URLSearchParams();
@@ -35,6 +36,14 @@ function Cart(props) {
                 if (cartItem.entry_id) return <CartItem key={cartItem.entry_id} item={cartItem} />;
             }),
         );
+
+        setTotalPrice((() => {
+            let price = 0;
+            for(let item of cart) {
+                price += item.price - 0;
+            }
+            return price;
+        })());
     }, [cart]);
 
     return (
@@ -45,7 +54,7 @@ function Cart(props) {
                     <Button
                         intent="secondary"
                         large={true}
-                        text="A&ntilde;adir al carrito"
+                        text={`Comprar carrito: $${totalPrice}`}
                         onClick={handleCheckout}
                     />
             </div>

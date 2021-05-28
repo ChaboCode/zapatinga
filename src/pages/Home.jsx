@@ -12,6 +12,9 @@ function Home() {
             <Header />
             <SearchBar />
             <Navigation mainElement={(<CardsContainer />)} />
+            <footer>
+                &copy; Zapatinga 2021. Todos los derechos reservados. Sa&aacute;l Ch&aacute;vez S&aacute;nchez 4oA CBTis 262
+            </footer>
         </>
     );
 }
